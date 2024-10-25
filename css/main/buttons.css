@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+
+    user-select: none;
+
+    /*Colors*/
+    --bg-color: #222831;
+    --pri-color: #393E46;
+    --btn-color: #00ADB5;
+    --lnk-color: #00FFF5;
+    --grayish: #dbdbdb;
+    --trans-delay: 0.2s;
+    --fade-anim: 0.1s;
+    --slide-anim: 1s;
+
+    /*------*/
+}
+
+.nav.unwind .navbuttons strong {
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+}
+
+.navbuttons {
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbuttons li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+li.nouser {
+    display: none;
+}
+
+li.admin {
+    display: flex;
+}
+
+.navbuttons a {
+    text-decoration: none;
+    color: var(--grayish);
+    font-size: xx-large;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    float: left;
+    margin-left: 9px;
+    margin-right: 9px;
+    padding-left: 21px;
+    padding-right: 21px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: calc(100% - 50px);
+    position: relative;
+    border-radius: 8px;
+}
+
+.navbuttons a.select {
+    pointer-events: none;
+    transition: 0.2s;
+    padding-left: 15px;
+    padding-right: 7px;
+}
+
+.navbuttons strong {
+    font-family: 'Varela Round', sans-serif;
+    margin-top: 5px;
+    padding-left: 30px;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity var(--fade-anim) linear;
+    user-select: none;
+    text-align: justify;
+    display: inline-block;
+    position: absolute;
+}
+
+.icon #strong2 {
+    white-space: nowrap;
+}
+
+.icon {
+    z-index: 10000;
+    
+}
+
+
+.icon strong.unwind {
+    opacity: 1;
+}
+
+div.navbuttons a.select:hover {
+    background-color: transparent;
+}
+
+div.navbuttons a:hover {
+    transition: 0.1s;
+    background-color: var(--btn-color);
+    background-size: 10px 10px;
+    border-radius: 8px;
+}
+
+li.select {
+    pointer-events: none;
+}
+
+.bar {
+    display: none;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin-left: 7px;
+    color: transparent;
+    background-color: var(--lnk-color);
+    padding-left: 3px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 5px;
+
+
+}
+
+.bar.select {
+    transition: 1s ease;
+    display: initial;
+    opacity: 1;
+}
+
+.temp {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+}

@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 100vh;
+}
+
+#outer2 {
+    margin-top: 100px;
+}
