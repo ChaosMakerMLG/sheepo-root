@@ -3,8 +3,8 @@
     height: 300px;
     margin-bottom: 100px;
     padding-bottom: 130px;
-    background-color: white;
-    box-shadow: 5px 5px 30px 5px lightgray;
+    background-color: rgb(57, 62, 70);
+    box-shadow: 5px 5px 30px 5px black;
     border-radius: 20px;
 }
 

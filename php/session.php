@@ -1,5 +1,9 @@
 <?php
 
+/* if(isset($_COOKIE['session'])) {
+
+} */
+
 $user = $_POST['login'];
 $passwd = $_POST['passwd'];
 
@@ -119,13 +123,13 @@ else {
         mysqli_query($conn, $sql);
         setcookie('timeout', 'bomboklat', time() + (60000 * 30), '/');
         setcookie('username', $_POST['login'], time() - (61000 * 5), '/index.php');
+        setcookie('session', , time() - (61000 * 5), '/index.php');
         header("Location:/main.php");
         mysqli_close($conn);
         exit;
         
     }
     else {
-        setcookie('username', $_POST['login'], time() + (60000 * 5), '/index.php');
         setcookie('error', 'index', time() + (60000 * 5), '/index.php');
         $sql = "INSERT INTO log (username, date, action, error, user)
         VALUES ('$user', NOW(), 'User login', 'Login failed - Incorrect login or password', '1');";

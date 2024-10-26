@@ -28,12 +28,12 @@ const doughnut_data = {
       label: '',
       data: [100, 0],
       backgroundColor: [
-        'rgba(211,211,211, 1)',
-        'rgba(54, 162, 235, 1)'
+        'rgb(90, 90, 95)',
+        'rgb(0, 173, 181)'
       ],
       borderColor: [
-        'rgba(211,211,211, 1)',
-        'rgba(54, 162, 235, 1)'
+        'rgb(90, 90, 95)',
+        'rgb(0, 173, 181)'
       ],
       hoverOffset: 0
     }]
@@ -59,7 +59,7 @@ const doughnut_data = {
     beforeDatasetsDraw(chart, args, pluginOptions) {
       const { ctx, data } = chart;
 
-      ctx.shadowColor = 'lightgrey';
+      ctx.shadowColor = '#000000';
       ctx.shadowBlur = 20;
       ctx.shadowOffsetX = 0;
       ctx.shadowOffsetY = 0;
@@ -72,7 +72,7 @@ const doughnut_data = {
       }
   
       ctx.save();
-      ctx.shadowColor = 'lightgrey';
+      ctx.shadowColor = 'rgb(26, 26, 26)';
         ctx.shadowBlur = 10;
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
@@ -80,11 +80,11 @@ const doughnut_data = {
       const yCoor = chart.getDatasetMeta(0).data[0].y;
       ctx.beginPath();
       ctx.arc(xCoor, yCoor, 80, 0, 2 * Math.PI);
-      ctx.fillStyle = 'white';
+      ctx.fillStyle = 'rgb(57, 62, 70)';
       const circle = ctx.fill();
       resetShadow();
       ctx.font = 'bold 42px "Rajdhani", sans-serif';
-      ctx.fillStyle = '#00030E';
+      ctx.fillStyle = 'rgb(219, 219, 219)';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       const endValue = chart.data.datasets[0].data[1];
@@ -99,14 +99,16 @@ const doughnut_data = {
 
                 
                 ctx.font = 'bold 42px "Rajdhani", sans-serif';
-                ctx.fillStyle = '#00030E';
+                ctx.fillStyle = 'rgb(219, 219, 219)';
                 ctx.fillText(currentValue.toFixed(1) + "%", xCoor, yCoor - 5);
+                resetShadow();
                 
             }
         };
       ctx.font = 'bold 16px Varela Round';
-      ctx.fillStyle = 'grey';
+      ctx.fillStyle = 'rgb(162, 160, 160)';
       ctx.fillText(`Total: ${disk_max_space}`, xCoor, yCoor + 25);
+      resetShadow()
      
     }
   
@@ -140,7 +142,7 @@ const doughnut_data = {
 
         const text = document.createElement('p');
         text.className = 'textElement';
-        text.style.color = 'grey';
+        text.style.color = 'rgb(162, 160, 160)';
         text.style.fontFamily = 'Varela Round';
         text.style.fontWeight = '500';
         var size_value = disk_free_space;
@@ -151,6 +153,7 @@ const doughnut_data = {
         }
         const textElmnt = document.createTextNode(item.text + ': ' + size_value);
         li.style.order = order;
+        li.style.textShadow = '0px 0px 10px rgb(26, 26, 26)';
         
         x = 1
 
