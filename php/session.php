@@ -115,6 +115,8 @@ else {
         session_set_cookie_params(0);
         session_start();
 
+
+
         $_SESSION['login'] = $user;   
         $sql = "UPDATE users SET session_id='$ses_id' WHERE login='$user'";
         mysqli_query($conn, $sql);
@@ -123,7 +125,12 @@ else {
         mysqli_query($conn, $sql);
         setcookie('timeout', 'bomboklat', time() + (60000 * 30), '/');
         setcookie('username', $_POST['login'], time() - (61000 * 5), '/index.php');
-        setcookie('session', , time() - (61000 * 5), '/index.php');
+
+        include 'encryption';
+
+        $content = secured_encrypt(session_id());
+
+        setcookie('session', $content, time() - (61000 * 5), '/index.php');
         header("Location:/main.php");
         mysqli_close($conn);
         exit;

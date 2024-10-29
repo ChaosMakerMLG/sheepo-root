@@ -4,7 +4,7 @@ ini_Set("display_errors", "On");
 
 session_start();
 $request_uname = $_SESSION['login'];
-if(!$_COOKIE['timeout']) {
+if(empty($_COOKIE['timeout'])) {
 
 
 }
