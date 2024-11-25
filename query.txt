@@ -41,3 +41,6 @@ DEALLOCATE PREPARE stmt;
 
 
 https://getbutterfly.com/vanilla-javascript-table-date-sorting/
+
+
+nigga
