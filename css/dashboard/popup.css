@@ -1,0 +1,18 @@
+:root {
+    user-select: none;
+
+    font-family: 'Varela Round', sans-serif;
+
+
+    /*Colors*/
+    --bg-color: #222831;
+    --pri-color: #393E46;
+    --btn-color: #00ADB5;
+    --lnk-color: #00FFF5;
+    --grayish: #dbdbdb;
+    --trans-delay: 0.2s;
+    --fade-anim: 0.1s;
+    --slide-anim: 1s;
+
+    /*------*/
+}

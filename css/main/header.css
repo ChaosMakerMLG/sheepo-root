@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Varela%20Round:700|Varela%20Round:400');
+
+body {
+  font-family: 'Varela Round';
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Varela Round';
+  font-weight: 700;
+}
+
+html {font-size: 100%;} /* 16px */
+
+h1 {font-size: 2.489rem; /* 39.84px */}
+
+h2 {font-size: 2.074rem; /* 33.12px */}
+
+h3 {font-size: 1.728rem; /* 27.68px */}
+
+h4 {font-size: 1.440rem; /* 23.04px */}
+
+h5 {font-size: 1.200rem; /* 19.2px */}
+
+small {font-size: 0.833rem; /* 13.28px */}
+
+:root {
+    user-select: none;
+
+
+
+    /*Colors*/
+    --bg-color: #222831;
+    --pri-color: #393E46;
+    --btn-color: #00ADB5;
+    --lnk-color: #00FFF5;
+    --grayish: #dbdbdb;
+    --trans-delay: 0.2s;
+    --fade-anim: 0.1s;
+    --slide-anim: 1s;
+
+    /*------*/
+
+
+
+}
+
+#logo {
+}
+
+header {
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+#nav .button.unwind {
+    transform: rotate(180deg);
+}
+
+#nav .button.unwind:hover {
+    background-color: var(--btn-color);
+
+}
+
+#nav .button:hover {
+    background-color: var(--btn-color);
+
+}

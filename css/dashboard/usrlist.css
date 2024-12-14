@@ -1,0 +1,269 @@
+:root {
+    user-select: none;
+
+    font-family: 'Varela Round', sans-serif;
+
+
+    /*Colors*/
+    --bg-color: #222831;
+    --pri-color: #393E46;
+    --btn-color: #00ADB5;
+    --lnk-color: #00FFF5;
+    --grayish: #dbdbdb;
+    --trans-delay: 0.2s;
+    --fade-anim: 0.1s;
+    --slide-anim: 1s;
+
+    /*------*/
+}
+
+html{
+    overflow: visible;
+}
+
+body {
+    background-color: transparent;
+    overflow: visible;
+}
+
+#outer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* #region  Userlist-styles */
+
+#userlist {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--pri-color);
+    border-radius: 10px;
+}
+
+#content::-webkit-scrollbar {
+    width: 15px;  
+    
+}
+
+#content::-webkit-scrollbar-thumb {
+    background-color: #14181d;
+    border-radius: 10px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--pri-color);
+    
+
+
+}
+
+#content::-webkit-scrollbar-track {
+    
+    background-color: var(--pri-color);
+    border-bottom-right-radius: 50%;
+        margin-top: 1px;
+
+
+}
+
+
+#content-userlist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-bottom: 6px;
+}
+
+#tbody-userlist {
+    padding-block: 6px;
+    display: block;
+    margin: auto 0;
+    height: 445px;
+    margin-left: 1px;
+}
+
+#userlist>#topbar-userlist {
+    background-color: var(--bg-color);
+    display: inline-flex;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#userlist>#topbar-userlist>i {
+    color: var(--grayish);
+    font-size: xx-large;
+    margin: 15px 20px 15px;
+}
+
+#userlist>#topbar-userlist>#search-userlist {
+    width: 50%;
+    padding: 10px;
+    padding-left: 10px;
+    margin: 15px;
+    border: transparent;
+    border-radius: 5px;
+    font-family: 'Varela Round', sans-serif;
+    text-decoration: solid;
+
+    color: var(--bg-color);
+
+}
+
+#popup {
+    opacity: 0;
+}
+
+.connector {
+    flex-shrink: 0;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.userlisttrs {
+    height: 55px;
+    background-color: #14181d;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right:6px;
+    display: flex;
+    align-items: center;
+}
+
+.table_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.delete, .shutdown {
+    align-self: flex-end;
+    font-size: large;
+    color: var(--lnk-color);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.delete {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.open {
+    align-self: flex-end;
+        font-size: large;
+        color: var(--lnk-color);
+        padding-top: 15px;
+            padding-bottom: 15px;
+}
+.open.toggle, .shutdown{
+    display: initial;
+}
+
+.shutdown.toggle, .open{
+    display: none;
+}
+
+.open:hover, .open.toggle:hover, .shutdown:hover, .shutdown.toggle:hover, .delete:hover{
+    color: #00ADB5;
+}
+
+.suspend_text.toggle {
+    display: initial;
+    color: #e3cd07;
+}
+
+.suspend_text {
+    display: none;
+}
+    
+.indicator {
+    visibility: hidden;
+    margin-left: 5px;
+    padding-top: 10%;
+    border-radius: 5px;
+    min-width: 5px;
+    max-width: 5px;
+    animation-name: pulse;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+}
+
+.indicator.on {
+    visibility: visible;
+    background-color: rgb(255, 145, 0); 
+}
+
+@keyframes pulse {
+        to {
+            background-color: var(--lnk-color);
+        }
+
+        from {
+            background-color: var(--btn-color);
+        }
+}
+
+.username {
+    color: var(--grayish);
+    width: 160px;
+    overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.padding {
+    padding-top: 5px;
+}
+
+.login_indicator {
+    color: #393e46;
+    display: none;
+    margin: 10px;
+    font-size: xx-large;
+    text-align: center;
+    align-self: flex-end;
+    margin-right: 3px;
+    margin-left: 8px;
+}
+
+.login_indicator2  {
+    color: #393e46;
+    padding-top: 5px;
+    font-size: xx-large;
+    text-align: center;
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+.login_indicator.loggedin{
+    display: initial;
+}
+ .login_indicator2.loggedin {
+    display: none;
+}
+
+/* #endregion  Userlist-styles */
+
+/* #region  Log-styles */
+
+
+
+/* #region Dropdown-filter */
+
+
+
+/* #endregion Dropdown-filter */
+
+/* #endregion  Log-styles */
+
+

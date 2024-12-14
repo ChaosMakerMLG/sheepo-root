@@ -1,0 +1,46 @@
+set @ts = DATE_FORMAT(NOW(),'_%Y_%m_%d_%H_%i_%s');
+set @filename = concat(replace(@@secure_file_priv,'\\','/'), 'orders', @ts, '.csv');
+
+select @filename;
+
+set @cmd = CONCAT("SELECT * FROM log
+INTO OUTFILE '/backups/db/logs/log.csv' 
+FIELDS ENCLOSED BY '"' 
+TERMINATED BY ',' 
+ESCAPED BY '"' 
+LINES TERMINATED BY '\r\n';");
+
+prepare statement from @cmd;
+
+execute statement;
+
+deallocate prepare statement;
+
+
+
+
+INSERT INTO log (username, date, action, destination, error)
+VALUES ('example_user', NOW(), 'action_description', 'destination_value', 0);
+
+CREATE TABLE IF NOT EXISTS archive.date_format(now(),'%Y-%m') SELECT * FROM log;
+
+SET @current_month_year := DATE_FORMAT(NOW(), '%Y_%m');
+SET @new_table_name := CONCAT('log_', @current_month_year);
+SET @create_table_sql := CONCAT('CREATE TABLE IF NOT EXISTS archive.', @new_table_name, ' LIKE logins.log;');
+PREPARE stmt FROM @create_table_sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+SET @insert_into_sql := CONCAT('INSERT INTO archive.', @new_table_name, ' SELECT * FROM logins.log;');
+PREPARE stmt FROM @insert_into_sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+
+
+
+
+
+https://getbutterfly.com/vanilla-javascript-table-date-sorting/
+
+
+nigga

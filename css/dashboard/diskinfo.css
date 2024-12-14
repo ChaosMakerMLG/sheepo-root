@@ -1,0 +1,82 @@
+.chartBox {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 100px;
+    padding-bottom: 130px;
+    background-color: rgb(57, 62, 70);
+    box-shadow: 5px 5px 30px 5px black;
+    border-radius: 20px;
+}
+
+.listContainer {
+    padding: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.listContainer>li {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.circleSpan {
+    
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+
+}
+.textElement {
+    width: 100px;
+}
+
+#detailsContainer {
+    z-index: -2;
+    width: 850px;
+    background-color: white;
+    box-shadow: 5px 5px 30px 5px lightgray;
+    margin-left: 50px;
+    border-radius: 20px;
+    visibility: hidden;
+    transform: translateX(-350px);
+    transition: all 0.2s cubic-bezier(0.280, -0.005, 0.000, 1.005);
+
+}
+
+#bar_chart {
+    padding-left: 5px;
+    padding-top: 20px;
+    width: 800px;
+    height: 400px;
+}
+
+#disk-info {
+    display: flex;
+    flex-direction: row;
+}
+
+#detailsContainer.active {
+    visibility: visible;
+    transition: all 0.3s cubic-bezier(0.280, -0.005, 0.000, 1.005);
+    transform: translateX(0px);
+
+}
+
+#detailsContainer.active>canvas {
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.280, -0.005, 0.000, 1.005);
+
+}
+
+#detailsContainer>canvas {
+    height: 300px;
+    width: 900px;
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.280, -0.005, 0.000, 1.005);
+    
+}

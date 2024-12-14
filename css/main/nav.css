@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+    user-select: none;
+
+    /*Colors*/
+    --bg-color: #222831;
+    --pri-color: #393E46;
+    --btn-color: #00ADB5;
+    --lnk-color: #00FFF5;
+    --grayish: #dbdbdb;
+    --trans-delay: 0.2s;
+    --fade-anim: 0.1s;
+    --slide-anim: 0.1s;
+
+    /*------*/
+}
+
+.nav {
+    background-color: var(--pri-color);
+    transition: var(--slide-anim) ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 93px;
+    z-index: 999;
+    position: fixed;
+    box-shadow: 0px 1px 25px rgb(31, 31, 31);
+}
+
+.nav.unwind {
+    width: 260px;
+    
+}
+.bottom {
+    justify-self: flex-end;
+    margin-top: auto;
+}
+
+.body {
+    margin-left: 93px;
+}
+
+.nav.unwind + .body {
+    margin-left: 260px;
+}
