@@ -43,7 +43,11 @@ $disk_free_space_bytes = (disk_total_space("/") - (getDirectorySize($path1) + ge
 $percentage_archives = removeTrailingZeros(getTotalPercentageForPatterns($pattern_archives, $disk_filled_space_bytes, $path1));
 $percentage_images = removeTrailingZeros(getTotalPercentageForPatterns($pattern_images, $disk_filled_space_bytes, $path1));
 $percentage_documents = removeTrailingZeros(getTotalPercentageForPatterns($pattern_documents, $disk_filled_space_bytes, $path1));
-$percentage_backups = removeTrailingZeros(number_format(((getDirectorySize('/backups') / $disk_filled_space_bytes) * 100), 2, '.', ""));
+if (is_numeric($disk_filled_space_bytes) && $disk_filled_space_bytes > 0) {
+    $percentage_backups = removeTrailingZeros(number_format(((getDirectorySize('/backups') / $disk_filled_space_bytes) * 100), 2, '.', ""));
+} else {
+    $percentage_backups = removeTrailingZeros(number_format(0, 2, '.', ""));
+}
 $percentage_text = removeTrailingZeros(getTotalPercentageForPatterns($pattern_text, $disk_filled_space_bytes, $path1));
 $percentage_audio = removeTrailingZeros(getTotalPercentageForPatterns($pattern_audio, $disk_filled_space_bytes, $path1));
 $percentage_video = removeTrailingZeros(getTotalPercentageForPatterns($pattern_video, $disk_filled_space_bytes, $path1));

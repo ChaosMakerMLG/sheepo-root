@@ -38,7 +38,7 @@ $request_uname = $_SESSION['login'];
     <div id="center">
 
         <div id="main">
-            <form autocomplete="off" action="php/session.php" method="POST" id="form">
+            <form autocomplete="off" action="php/session" method="POST" id="form">
                 <input autocomplete="false" name="hidden" type="text" style="display:none;">
                 <div id="error" class="<?php if (@$_GET['error'] == true || @$_GET['empty'] == true || @$_GET['sus'] == true || @$_GET['active'] == true) echo 'visible'; ?>">
                     <?php

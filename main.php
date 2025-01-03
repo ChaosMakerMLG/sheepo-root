@@ -12,6 +12,7 @@ if (empty($_SESSION['login']) && session_id()) {
     header('location:index.php');
 }
 
+
 ?>
 
 <!DOCTYPE html>

@@ -43,6 +43,12 @@ function getTotalPercentageForPatterns($patterns, $disk_filled_bytes, $baseDir) 
 
     $totalSizeForPatterns = getSizeForPatterns($patterns, $baseDir);
 
+        if($disk_filled_bytes < 1 || $disk_filled_bytes === NULL) {
+
+            $totalPercentageForPatterns = number_format(0, 1, '.', "w");
+            return $totalPercentageForPatterns;
+        }
+
     $totalRawPercentageForPatterns = $totalSizeForPatterns / $disk_filled_bytes * 100;
 
     $totalPercentageForPatterns = number_format($totalRawPercentageForPatterns, 1, '.', "w");

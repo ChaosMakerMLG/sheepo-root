@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/loading.css">
     <link rel="stylesheet" href="css/storage/body.css">
+<!--     <link rel="stylesheet" href="css/storage/">
     <link rel="stylesheet" href="css/storage/">
-    <link rel="stylesheet" href="css/storage/">
-    <link rel="stylesheet" href="css/storage/">
+    <link rel="stylesheet" href="css/storage/"> -->
     <title>Storage</title>
 </head>
 <body>

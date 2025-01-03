@@ -1,6 +1,6 @@
 <?php 
 
-include 'php/global/key_consts.php';
+include 'global/key_consts.php';
 
 ?>
 

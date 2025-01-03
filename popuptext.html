@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cookie-container">
+        <div class="cookie-icon" id="cookie-icon">
+            🍪
+        </div>
+        <div class="cookie-popup" id="cookie-popup">
+            <p>This site uses cookies to enhance your experience. <a href="#">Learn more</a></p>
+        </div>
+    </div>
+    <style>
+        .cookie-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cookie-icon {
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.cookie-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+.cookie-popup {
+    position: absolute;
+    top: 40px; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cookie-popup:hover {
+    pointer-events: auto; /* Allow interaction when hovered */
+}
+
+.cookie-popup.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const cookieIcon = document.getElementById('cookie-icon');
+    const cookiePopup = document.getElementById('cookie-popup');
+    let hoverTimeout;
+
+    const showPopup = () => {
+        clearTimeout(hoverTimeout); // Prevent hiding while hovering
+        cookiePopup.classList.add('visible');
+    };
+
+    const hidePopup = () => {
+        hoverTimeout = setTimeout(() => {
+            cookiePopup.classList.remove('visible');
+        }, 300); // Delay to prevent accidental hiding
+    };
+
+    // Show popup when hovering over the icon
+    cookieIcon.addEventListener('mouseenter', showPopup);
+    cookiePopup.addEventListener('mouseenter', showPopup);
+
+    // Hide popup when leaving both the icon and the popup
+    cookieIcon.addEventListener('mouseleave', hidePopup);
+    cookiePopup.addEventListener('mouseleave', hidePopup);
+});
+    </script>
+    
+</body>
+</html>

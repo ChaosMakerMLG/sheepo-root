@@ -4,8 +4,8 @@
 
 } */
 
-$user = $_POST['login'];
-$passwd = $_POST['passwd'];
+$user = isset($_POST['login']) ? $_POST['login'] : '';
+$passwd = isset($_POST['passwd']) ? $_POST['passwd'] : '';
 
 function debug_to_console($data)
 {
@@ -50,7 +50,6 @@ include 'connect_db.php';
 if(empty($_POST['login']) || empty($_POST['passwd'])) {
     setcookie('username', $_POST['login'], time() + (60000 * 5), '/index.php');
     setcookie('error', 'index', time() + (60000 * 5), '/index.php');
-    header("location:/index.php?empty= Please fill in the blanks");
     exit;
 }
 
@@ -62,7 +61,7 @@ if($row['suspended'] == '1') {
     setcookie('error', 'index', time() + (60000 * 5), '/index.php');
     $sql = "INSERT INTO log (username, date, action, error, user)
         VALUES ('$user', NOW(), 'User login', 'Login failed - Account suspended', '1');";
-    header("Location:/index.php?sus= Your account got suspended.");
+    header("Location:/?sus= Your account got suspended.");
     mysqli_close($conn);
     exit;
 }
@@ -80,7 +79,7 @@ if(isset($row['session_id'])) {
 
     $sql = "INSERT INTO log (username, date, action, error, user)
         VALUES ('$user', NOW(), 'User login', 'Login failed - User already logged in', '1');";
-    header("Location:/index.php?active= User already logged in.");
+    header("Location:/?active= User already logged in.");
     mysqli_close($conn);    
     
 }
@@ -126,9 +125,9 @@ else {
         setcookie('timeout', 'bomboklat', time() + (60000 * 30), '/');
         setcookie('username', $_POST['login'], time() - (61000 * 5), '/index.php');
 
-        include 'encryption';
+        include 'encryption.php';
 
-        /* $content = secured_encrypt(session_id()); */
+        $content = secured_encrypt(session_id());
 
         setcookie('session', $content, time() - (61000 * 5), '/index.php');
         header("Location:/main.php");
@@ -141,8 +140,10 @@ else {
         $sql = "INSERT INTO log (username, date, action, error, user)
         VALUES ('$user', NOW(), 'User login', 'Login failed - Incorrect login or password', '1');";
         mysqli_query($conn, $sql);
-        header("Location:/index.php?error= Incorrect login or password.");
+        header("Location:/?error= Incorrect login or password.");
         exit;
     }
 }
+
+
 ?>
