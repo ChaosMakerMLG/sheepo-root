@@ -2,9 +2,6 @@
 
 include 'global/key_consts.php';
 
-?>
-
-<?php
 function secured_encrypt($data)
 {
 $first_key = base64_decode(FIRSTKEY);
@@ -20,9 +17,7 @@ $second_encrypted = hash_hmac('sha3-512', $first_encrypted, $second_key, TRUE);
 $output = base64_encode($iv.$second_encrypted.$first_encrypted);    
 return $output;        
 }
-?>
 
-<?php
 function secured_decrypt($input)
 {
 $first_key = base64_decode(FIRSTKEY);
